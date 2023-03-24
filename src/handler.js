@@ -1,7 +1,7 @@
 const { nanoid } = require("nanoid");
 const books = require('./books');
 
-const addNoteHandler = (request, h) => {
+const addBookHandler = (request, h) => {
   const { name, year, author, summary, publisher, pageCount, readPage, reading } = request.payload;
 
   if (!name) {
@@ -63,4 +63,4 @@ const addNoteHandler = (request, h) => {
   return response;;
 };
 
-module.exports = { addNoteHandler };
+module.exports = { addBookHandler };
