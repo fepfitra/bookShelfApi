@@ -58,9 +58,17 @@ const addBookHandler = (request, h) => {
     status: 'fail',
     message: 'Buku gagal ditambahkan',
   });
-  
-  response.code(500);
-  return response;;
 };
 
-module.exports = { addBookHandler };
+const getAllBookHandler = () => ({
+  status: 'success',
+  data: {
+    books: books.map((book) => ({
+      id: book.id,
+      name: book.name,
+      publisher: book.publisher,
+    })),
+  },
+});
+
+module.exports = { addBookHandler, getAllBookHandler };
